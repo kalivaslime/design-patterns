@@ -1,8 +1,27 @@
-# Node.js + TypeScript Starter
+# Node.js + TypeScript Design Patterns
 
-## Run the code
+## Build and Run
 
 ```sh
-npm run build
-node dist/index.js
+npm start
+```
+
+## Singleton
+
+```ts
+class Singleton {
+  private static instance: Singleton
+  public readonly name: string
+
+  private constructor(name: string) {
+    this.name = name
+  }
+
+  public static getInstance(name: string): Singleton {
+    if (!Singleton.instance) {
+      Singleton.instance = new Singleton(name)
+    }
+    return Singleton.instance
+  }
+}
 ```
